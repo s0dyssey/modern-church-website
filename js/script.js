@@ -1,12 +1,12 @@
 const nav = document.querySelector('.navbar');
 const toggle = document.querySelector('.nav-toggle');
 
-const MOBILE_BREAKPOINT = 935; // must match your CSS
+const MOBILE_BREAKPOINT = 935;
 
 toggle.addEventListener('click', () => {
   nav.classList.toggle('open');
 
-  // If closing the mobile menu, close all dropdowns too
+
   if (!nav.classList.contains('open')) {
     document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
   }
@@ -40,3 +40,13 @@ document.addEventListener('click', (e) => {
 
   document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
 });
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    nav.classList.add('navbar-scrolled')}
+  else {
+    nav.classList.remove('navbar-scrolled');
+  }
+});
+
+
